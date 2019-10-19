@@ -8,18 +8,29 @@ import UserInfoModel from '../../models/UserInfoModel';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  userData: UserInfoModel;
+  // userData: UserInfoModel;
+  userData = {
+    name: '',
+    email: '',
+    email_verified_at: '',
+    updated_at: '',
+    created_at: '',
+    id: 0,
+  };
+  responseIsReady = false;
 
   constructor(private userInfoService: UserInfoService) { }
 
   ngOnInit() {
-    this.getUserdata();
+      this.getUserdata();
+      console.log(this.userData.name);
   }
   getUserdata(): void {
     this.userInfoService.getUserData()
       .subscribe(response => {
         this.userData = response;
         this.userData.name = response.name;
+        this.userData.email = response.email;
         console.log(this.userData);
       });
   }
