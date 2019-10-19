@@ -1,4 +1,5 @@
 .leaderboard {
+  margin-top: 20px;
   .page-title{
     display: flex;
     justify-content: center;
@@ -13,7 +14,25 @@
     align-items: center;
     table{
       width: 100%;
+      .table-head{
+        background-color: aqua !important;
+      }
+      .leader {
+        span {
+          font-size: 14px;
+          color: red;
+        }
+      }
       tr{
+        border: 1px solid black;
+        height: 40px;
+        font-size: 20px;
+        &:nth-child(even){
+          background-color: lightgray;
+        }
+        &:nth-child(odd){
+          background-color: gray;
+        }
         th{
 
         }

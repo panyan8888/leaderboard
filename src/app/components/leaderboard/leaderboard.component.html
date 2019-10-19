@@ -5,13 +5,13 @@
   </div>
   <div class="leaderboard-table">
     <table>
-      <tr>
+      <tr class="table-head">
         <th>Name</th>
         <th>Email</th>
         <th>Score</th>
       </tr>
-      <tr *ngFor="let user of usersList">
-        <td>{{ user.name}}</td>
+      <tr *ngFor="let user of usersList let isFirst = first" [class.leader]="isFirst">
+        <td>{{ user.name}} <span *ngIf="isFirst">leader</span></td>
         <td>{{ user.email }}</td>
         <td>{{ user.score }}</td>
       </tr>

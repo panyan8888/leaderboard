@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.storageService.token = null;
+    localStorage.removeItem('TOKEN_STORAGE_KEY');
     this.router.navigate(['/']);
   }
 }
