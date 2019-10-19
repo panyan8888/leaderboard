@@ -3,6 +3,7 @@
     <input type="text" placeholder="Enter you name" name="name" [(ngModel)]="userRegisterData.name">
     <input type="text" placeholder="Enter your email" name="email" [(ngModel)]="userRegisterData.email">
     <input type="password" placeholder="Enter your password" name="password" [(ngModel)]="userRegisterData.password">
+    <div *ngIf="isEmptyFields">You must fill all fields</div>
     <button type="submit">Register</button>
   </form>
 </div>

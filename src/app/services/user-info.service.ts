@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import UsersModel from '../models/UsersModel';
+import UserInfoModel from '../models/UserInfoModel';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ export class UserInfoService {
 
   constructor(private http: HttpClient) {}
 
-  getUserData() {
-    return this.http.get(this.url);
+  getUserData(): Observable<UserInfoModel> {
+    return this.http.get<UserInfoModel>(this.url);
   }
 }

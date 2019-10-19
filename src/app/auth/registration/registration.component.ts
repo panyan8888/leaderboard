@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+
+  isEmptyFields = false;
   userRegisterData = {
     name: '',
     email: '',
@@ -24,7 +26,9 @@ export class RegistrationComponent implements OnInit {
 
   submitRegister(): void {
     const {name, email, password} = this.userRegisterData;
-    if (!name || !email || !password) { return; }
+    if (!name || !email || !password) {
+      this.isEmptyFields = true;
+      return; }
 
     this.userService.registration(this.userRegisterData).subscribe(() => {
       this.router.navigate(['auth', 'login']);

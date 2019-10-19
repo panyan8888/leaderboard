@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  isEmptyFields = false;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -23,7 +25,9 @@ export class LoginComponent implements OnInit {
 
   submitLogin(): void {
     const {username, password} = this.userLoginData;
-    if (!username || !password) { return; }
+    if (!username || !password) {
+      this.isEmptyFields = true;
+    }
 
     this.authService.loginUser(this.userLoginData).subscribe(() => {
       this.router.navigate(['/']);

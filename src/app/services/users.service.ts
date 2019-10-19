@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import UsersModel from '../models/UsersModel';
 import {environment} from '../../environments/environment';
+import RegistrationRequestModel from '../models/RegistrationRequestModel';
+import RegistrationResponseModel from '../models/RegistrationResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,8 @@ export class UsersService {
     return this.http.get<UsersModel>(this.url);
   }
 
-  registration(userData) {
-    return this.http.post(this.url, userData);
+  registration(userData: RegistrationRequestModel ): Observable<RegistrationResponseModel> {
+    return this.http.post<RegistrationResponseModel>(this.url, userData);
   }
 }
 
