@@ -1,0 +1,7 @@
+<a class="title" routerLink="/">Leaderboard</a>
+<div class="authorization-buttons" *ngIf="!hasToken">
+  <a routerLink="/auth/login">Login</a>
+  <a routerLink="/auth/registration">Registration</a>
+</div>
+<a routerLink="/profile" *ngIf="hasToken">User Profile</a>
+<button *ngIf="hasToken" (click)="logout()">Logout</button>

@@ -1,0 +1,20 @@
+<!--leaderboard view-->
+<div class="leaderboard">
+  <div class="page-title">
+    <span>Leader Board</span>
+  </div>
+  <div class="leaderboard-table">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Score</th>
+      </tr>
+      <tr *ngFor="let user of usersList">
+        <td>{{ user.name}}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.score }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+}
+
+.title {
+  padding: 0 20px;
+}
+
+.authorization-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+  a {
+    //border: none;
+    padding: 5px 20px;
+    outline: none;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
