@@ -10,6 +10,9 @@ import {Router} from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
   isEmptyFields = false;
+  backMailError = false;
+  backPasswordError = false;
+  errorMessage: any;
   userRegisterData = {
     name: '',
     email: '',
@@ -32,6 +35,20 @@ export class RegistrationComponent implements OnInit {
 
     this.userService.registration(this.userRegisterData).subscribe(() => {
       this.router.navigate(['auth', 'login']);
-    });
+    },
+      error => {
+        this.errorMessage = error.error.errors;
+        console.log(this.errorMessage);
+        if (this.errorMessage.email) {
+          this.backMailError = true;
+        } else {
+          this.backMailError = false;
+        }
+        if (this.errorMessage.password) {
+          this.backPasswordError = true;
+        } else {
+          this.backPasswordError = false;
+        }
+      });
   }
 }

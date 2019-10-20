@@ -8,11 +8,13 @@
            onfocus="this.removeAttribute('readonly')"
            type="text" placeholder="Enter your email" name="email"
            [(ngModel)]="userRegisterData.email">
+    <div *ngIf="backMailError" class="back-mail-error">You must type a valid email</div>
     <input autocomplete="off" readonly
            onfocus="this.removeAttribute('readonly')"
            type="password" placeholder="Enter your password" name="password"
            [(ngModel)]="userRegisterData.password">
-    <div *ngIf="isEmptyFields">You must fill all fields</div>
+    <div *ngIf="backPasswordError" class="back-password-error">Password must be at least 6 characters</div>
+    <div class="empty-error" *ngIf="isEmptyFields">You must fill all fields</div>
     <button type="submit">Register</button>
   </form>
 </div>
