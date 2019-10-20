@@ -8,7 +8,8 @@
            onfocus="this.removeAttribute('readonly')"
            type="password" placeholder="Enter your password" name="password"
            [(ngModel)]="userLoginData.password">
-    <div *ngIf="isEmptyFields">You must fill all fields</div>
+    <div *ngIf="invalidCredentialsError" class="invalid-credentials-error">Invalid username or password</div>
+    <div class="empty-error" *ngIf="isEmptyFields">You must fill all fields</div>
     <button type="submit">Login</button>
   </form>
 </div>

@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  invalidCredentialsError = false;
+  errorMessage: string;
   isEmptyFields = false;
 
   constructor(
@@ -31,6 +33,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(this.userLoginData).subscribe(() => {
       this.router.navigate(['/']);
-    });
+    },
+      error => {
+        this.errorMessage = error.error.error;
+        if (this.errorMessage) {
+          this.invalidCredentialsError = true;
+        } else {
+          this.invalidCredentialsError = false;
+        }
+      });
   }
 }

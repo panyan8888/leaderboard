@@ -23,7 +23,6 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
       this.getUserdata();
-      console.log(this.userData.name);
   }
   getUserdata(): void {
     this.userInfoService.getUserData()
@@ -31,7 +30,6 @@ export class UserProfileComponent implements OnInit {
         this.userData = response;
         this.userData.name = response.name;
         this.userData.email = response.email;
-        console.log(this.userData);
       });
   }
 

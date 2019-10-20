@@ -12,7 +12,10 @@ export class RegistrationComponent implements OnInit {
   isEmptyFields = false;
   backMailError = false;
   backPasswordError = false;
-  errorMessage: any;
+  errorMessage = {
+    email: '',
+    password: '',
+  };
   userRegisterData = {
     name: '',
     email: '',
@@ -38,7 +41,6 @@ export class RegistrationComponent implements OnInit {
     },
       error => {
         this.errorMessage = error.error.errors;
-        console.log(this.errorMessage);
         if (this.errorMessage.email) {
           this.backMailError = true;
         } else {
