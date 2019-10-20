@@ -1,7 +1,13 @@
 <div class="login-form">
   <form (submit)="submitLogin()">
-    <input type="text" placeholder="Enter your email" name="email" [(ngModel)]="userLoginData.username">
-    <input type="password" placeholder="Enter your password" name="password" [(ngModel)]="userLoginData.password">
+    <input autocomplete="off" readonly
+           onfocus="this.removeAttribute('readonly')"
+           type="text" placeholder="Enter your email" name="email"
+           [(ngModel)]="userLoginData.username">
+    <input autocomplete="off" readonly
+           onfocus="this.removeAttribute('readonly')"
+           type="password" placeholder="Enter your password" name="password"
+           [(ngModel)]="userLoginData.password">
     <div *ngIf="isEmptyFields">You must fill all fields</div>
     <button type="submit">Login</button>
   </form>
